@@ -1,5 +1,7 @@
-// Karma configuration
-// Generated on Sun May 20 2018 17:18:44 GMT+0800 (中国标准时间)
+const path = require('path')
+function resolve (dir) {
+  return path.resolve(__dirname, '..', dir)
+}
 
 module.exports = function (config) {
   config.set({
@@ -13,7 +15,6 @@ module.exports = function (config) {
 
     // list of files / patterns to load in the browser
     files: [
-      {pattern: '../index.html', included: false, served: false},
       'index.js'
     ],
 
@@ -28,6 +29,11 @@ module.exports = function (config) {
     },
     webpack: {
       mode: 'development',
+      resolve: {
+        alias: {
+          '@': resolve('')
+        }
+      },
       module: {
         rules: [
           {
